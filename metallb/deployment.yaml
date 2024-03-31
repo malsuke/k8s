@@ -13,7 +13,7 @@ spec:
         app: my-nginx
     spec:
       containers:
-      - name: my-nginx #コンテナ名
+      - name: my-nginx
         image: nginx:latest
         ports:
         - containerPort: 80
@@ -28,8 +28,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 80 # metalLBで公開するポート 8080で外部公開したければ8080にする
+    targetPort: 80 # containerPortに合わせる
     protocol: TCP
   selector:
     app: my-nginx
